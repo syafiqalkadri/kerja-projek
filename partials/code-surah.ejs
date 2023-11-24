@@ -1,0 +1,241 @@
+     <script>
+       const upButton = document.getElementsByClassName('up')[0];
+     const loopImg = document.getElementsByClassName('loopImg');
+     const pausepa = document.getElementsByClassName('pausepa');
+     const playpa = document.getElementsByClassName('playpa');
+     const  boxPage = document.getElementsByClassName('box-ayat');
+     const buttonMusic = document.getElementsByClassName('ButtonMusic');
+     const pausepaarr = [...pausepa];
+     const playpaarr = [...playpa];
+     const buttonMusicarr = [...buttonMusic];
+     const boxPagearr = [...boxPage];
+     const buttonPlay = document.getElementById('play');
+     const buttonPause = document.getElementById('pause');
+     const audioSlider = document.getElementById('range');
+     const duration = document.getElementById('duration');
+     const currentTime = document.getElementById('currentTime');
+     const img = document.querySelector('img');
+     const showAudio = document.getElementsByClassName('showAudio')[0];
+     const boxAudio = document.getElementsByClassName('box')[0];
+     const downButton = document.getElementsByClassName('downButton')[0];     
+     const ButtonBawah = document.getElementById('rotate');
+     const box = document.getElementById('ul');
+     const buttonShow = document.getElementsByClassName('buttonShow')[0];
+     const h1 = document.getElementById('animation');
+     const hasil = [...h1.textContent].map(a => `<span>${a}</span>`).join('');
+     let waktu = [10,20,30,40,50];
+     h1.innerHTML = hasil;
+     let audio = new Audio();
+     audio.src = '<%= audio%>';
+     audio.preload = 'auto';
+     audio.loop = false;
+
+      async  function Play() {
+      audio.play();
+       buttonPlay.style = 'display: none';
+       buttonPause.style = 'display: block';
+       img.classList.add('rotateImg');
+     }
+
+
+     function stop() {
+      audio.pause();
+      buttonPlay.style = 'display: block';
+      buttonPause.style = 'display: none';
+      img.classList.remove('rotateImg');
+     }
+
+    setInterval(updateSongSlider, 1000);
+
+     function updateSongSlider() {
+      let c = Math.round(audio.currentTime);
+      audioSlider.value = c
+      console.log(audio.currentTime)
+      let d = audio.duration;
+      audioSlider.setAttribute('max', d);
+     }
+
+     function seek() {
+      audio.currentTime = audioSlider.value;
+      stop();
+     }
+
+
+
+    
+
+       audio.onloadedmetadata = () => {
+       
+        let timeMin = Math.floor(audio.duration / 60);
+        let timeSec = Math.floor(audio.duration % 60);
+        if(timeSec < 10) {
+          timeSec = `0${timeSec}`;
+        } 
+        if (timeMin < 10) {
+          timeMin = `0${timeMin}`;
+        }
+
+
+        audio.addEventListener('timeupdate', () => {
+        let currentMin = Math.floor(audio.currentTime / 60);
+        let currentSec = Math.floor(audio.currentTime % 60);  
+        if (currentSec < 10) {
+          currentSec = `0${currentSec}`;
+        } 
+         if (currentMin < 10) {
+          currentMin = `0${currentMin}`;
+        }
+          
+
+        currentTime.innerHTML = `${currentMin}:${currentSec}`;
+
+       })
+      
+       duration.innerHTML = `${timeMin}:${timeSec}`;
+
+
+       }
+
+
+       audio.addEventListener('ended', () => {
+        stop();
+       })
+
+
+       audio.addEventListener('volumechange', () => {
+        console.log(`volume mu berubah ${audio.volume}`);
+       })
+
+
+    showAudio.addEventListener('click', function() {
+      boxAudio.classList.toggle('show');
+      showAudio.classList.toggle('animation');
+      downButton.classList.toggle('rotate');
+
+    });
+
+
+
+
+
+       function button() {
+        buttonShow.classList.toggle('animation');
+        box.classList.toggle('show');
+        ButtonBawah.classList.toggle('change');
+       }
+
+
+
+
+
+
+
+        function Scrollaudio() {
+    
+          const result  = [];
+          <%getData.forEach(e => { %>
+             result.push('<%= e %>')
+           <% })%>
+
+
+           forScrollaudio(result);
+
+     }
+
+     window.onload = Scrollaudio();
+    
+
+
+     function forScrollaudio(result) {
+      
+              for (let i = 0; i < playpaarr.length; i++){
+
+              const audic = new Audio();
+              audic.src = result[i];
+
+              playpaarr[i].addEventListener('click', function() {
+                playpaarr[i].style.display = 'none';
+                pausepaarr[i].style.display = 'inline';
+                audic.play();
+                audic.addEventListener('ended', function() {
+                  playpaarr[i].style.display = 'inline';
+                  pausepaarr[i].style.display = 'none';
+                  boxPagearr[i].scrollIntoView({
+                    behavior: 'smooth',
+                  });
+
+                if (i + 1 === playpaarr.length) {
+                  audic.pause();
+                  scrollTo({
+                    top: 0,
+                    left: 0,
+                    behavior: 'smooth',
+                  })
+                } else {
+                  setTimeout(() => {
+                    playpaarr[i + 1].click();
+                  }, 500)
+                }
+
+                })
+              })
+
+              pausepaarr[i].addEventListener('click', function() {
+                pausepaarr[i].style.display = 'none';
+                playpaarr[i].style.display = 'inline';
+                audic.pause();
+              })
+
+              }
+     }
+
+
+
+    function forward() {
+      audio.currentTime += 5;
+    }
+
+    function backward() {
+      audio.currentTime -= 5;
+    }
+
+
+   loopImg[0].addEventListener('click', () => {
+    if (audio.loop == false) {
+      loopImg[0].style.backgroundColor = 'white';
+      audio.loop = true;
+    } else {
+      loopImg[0].style.backgroundColor = ' rgb(176,224,230)';
+      audio.loop = false;
+    }
+   })
+
+
+   window.addEventListener('scroll', () => {
+        kondisiUpbutton();
+      })
+
+      upButton.addEventListener('click', ()=> {
+        scrollTo({
+          top: 0,
+          behavior: 'smooth',
+        })
+      })
+
+
+      function kondisiUpbutton()  {
+        let lastScroll = 0;
+        let scrollTop = window.pageYOffset;
+        if (scrollTop !== lastScroll) {
+          upButton.style.display = 'flex';
+        } else {
+          upButton.style.display = 'none';
+        }
+      }
+
+
+      </script>
+
+        
+</body>
+</html>

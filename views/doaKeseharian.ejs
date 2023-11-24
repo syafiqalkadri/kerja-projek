@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doa Keseharian</title>
+    <link rel="stylesheet" href="doaKeseharian.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+
+
+    <div class="headerContainer">
+        <div class="topContent">
+         <h1 id="animation" onclick="location.href='/surah'">DOA DOA KESEHARIAN</h1>
+         <div class="listContent">
+           <div class="buttonShow" onclick="button()"><i class='bx bxs-down-arrow ' id="rotate"></i></div>
+           <ul id="ul">
+             <li onclick="location.href='/surah'">Quran</li>
+             <li onclick="location.href='/tafsir'">Tafsir</li>
+            
+           </ul>
+         </div>
+        </div>
+     </div>
+       
+
+
+    <div class="container">
+        <% Result.forEach(element => { %>
+           <% const {id,doaKeseharian,teksarab,latin, bahasaIndonesia} = element %>
+           <div class="box">
+            <div><%= doaKeseharian %></div>
+            <div><%= teksarab %></div>
+            <div><%= latin %></div>
+            <div><%= bahasaIndonesia %></div>
+           </div>
+        <% }) %>
+    </div>
+
+
+    <div class="up">
+        <i class='bx bx-up-arrow-alt'></i>
+      </div>
+    
+
+ <script>
+    const containerBox = document.querySelectorAll('.box');
+     const box = document.getElementById('ul');
+     const buttonShow = document.getElementsByClassName('buttonShow')[0];
+     const downButton = document.getElementById('rotate');
+     const upButton = document.getElementsByClassName('up')[0];
+
+       console.log('mulai')
+       
+      function button() {
+      buttonShow.classList.toggle('animation');
+      box.classList.toggle('show');
+      downButton.classList.toggle('change');
+     }
+
+
+     window.addEventListener('scroll', () => {
+        kondisiUpbutton();
+      })
+
+      upButton.addEventListener('click', ()=> {
+        scrollTo({
+          top: 0,
+          behavior: 'smooth',
+        })
+      })
+
+
+      function kondisiUpbutton()  {
+        let lastScroll = 0;
+        let scrollTop = window.pageYOffset;
+        if (scrollTop !== lastScroll) {
+          upButton.style.display = 'flex';
+        } else {
+          upButton.style.display = 'none';
+        }
+      }
+
+  
+      function right() {
+          containerBox.forEach(a => {
+            a.classList.toggle('right');
+          })
+      }
+
+      setTimeout(async () => {
+        await right();
+        console.log('tengah')
+      }, 500)
+
+
+console.log('selesai')
+
+
+ </script>
+
+</body>
+</html>

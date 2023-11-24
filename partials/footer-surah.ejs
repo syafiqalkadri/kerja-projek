@@ -1,0 +1,23 @@
+<% if (Number(nomor) === 1) { %>
+    <div class="containerNextandPrev">
+     <div class="next" onclick="location.href='/surah/<%= j.nomor %>'">Next</div>
+    </div>
+  <% } else if (Number(nomor) === 114) { %>
+   
+    <div class="containerNextandPrev">
+     <div class="prev" onclick="location.href= '/surah/<%= Number(nomor) - 1%>'">Prev</div>
+    </div>
+  
+  <% } else { %>
+    <div class="containerNextandPrev">
+     <div class="prev" onclick="location.href= '/surah/<%= Number(nomor) - 1%>'">Prev</div>
+     <div class="next" onclick="location.href='/surah/<%= j.nomor %>'">Next</div>
+    </div>
+  <% } %>
+  
+  <div class="up">
+    <i class='bx bx-up-arrow-alt'></i>
+  </div>
+
+
+  

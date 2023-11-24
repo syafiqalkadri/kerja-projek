@@ -1,0 +1,103 @@
+<div class="containerForm">
+    <form method="get">
+      <input type="text" placeholder="Search Surah" name="s">
+
+       
+        <button type="submit" class="buttonSearch">
+          <i class='bx bx-search-alt-2'></i>
+        </button>
+
+      
+    </form>
+  </div>
+
+
+
+
+  <div class="containerContentbox">
+    <% if (can) { %>
+         <% if (result.length === 0) { %>
+
+           <div class="containerBox">
+            <a href="/" class="box">
+              <h1 style="font-size: xx-large;">404</h1>
+            </a>
+           </div>
+            
+         <% } else { %>
+          <div class="containerBox">
+            <% result.forEach(r => { %>
+               <% const {namaLatin, arti, nomor,nama}= r %>
+               <a href="/surah/<%= nomor %>" class="box">
+                <div class="containerImg">
+                  <img src="/icons8-quran-64.png" alt="">
+                  <h2><%= nomor %></h2>
+                </div>
+                <div class="contentCenter">
+                  <h1 class="textAnimationlatin"><%= namaLatin %></h1>
+                  <h1 class="textAnimationarab"><%= nama %></h1>
+                </div>
+              </a>
+        
+            <% }) %>
+           </div>
+
+        <%  } %>
+   <% } else { %>
+     <div class="containerBox">
+       <% data.forEach((a) => { %>
+    
+          <a href="/surah/<%= a.nomor %>" class="box">
+            <div class="containerImg">
+              <img src="/icons8-quran-64.png" alt="">
+              <h2><%= a.nomor %></h2>
+            </div>
+            <div class="contentCenter">
+              <h1 class="textAnimationlatin"><%= a.namaLatin %></h1>
+              <h1  class="textAnimationarab"><%= a.nama %></h1>
+            </div>
+          </a>
+    
+       <% }) %>
+      </div>
+  <% } %>
+  </div>
+
+
+  <div class="Feedback">
+
+
+       <div class="header-feedback">
+        <h1 id="feedbackh1">Feedback</h1>
+       </div>
+
+
+
+       <div class="container-form-feedback">
+            <form action="" method="post">
+                 <div class="nama">
+                 <label for="nama">NAMA </label>
+                 <input type="text" name="nama" id="formNama"> 
+                 </div>
+                 <div class="description">
+                  <label for="description">Saran/Masukkan </label>
+                  <textarea name="description" id="textarea"></textarea>
+                 </div>
+                <div class="email">
+                  <label for="email">EMAIL</label>
+                  <input type="text" name="email" id="email">
+                </div>
+                <input type="submit" value="SEND THIS">
+            </form>
+            <div class="container-img-feedback">
+            <img src="/send.png" alt="">
+          </div>
+       </div>
+
+
+
+
+  </div>
+
+
+  

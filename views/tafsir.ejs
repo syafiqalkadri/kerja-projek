@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surah <%= namaLatin %></title>
+    <link rel="stylesheet" href="/tafsir.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+
+  <div class="headerContainer">
+    <div class="topContent">
+     <h1 id="animation" onclick="location.href='/tafsir'">SyafTafsir</h1>
+     <div class="listContent">
+       <div class="buttonShow" onclick="button()"><i class='bx bxs-down-arrow ' id="rotate"></i></div>
+       <ul id="ul">
+         <li onclick="location.href = '/surah'">Quran</li>
+         <li onclick="location.href='/DoaKeseharian'">DoaKeseharian</li>
+         <li onclick="location.href = '/tafsir'">Home</li>
+       </ul>
+     </div>
+    </div>
+ </div>
+
+
+ <div class="containerAyat">
+    <% tafsir.forEach(e => { %>
+          <div class="box-tafsir">
+            <div>Ayat ke : <%= e.ayat %></div>
+            <div class="row"></div>
+            <div><%= e.teks %></div>
+          </div>
+    <% }) %>
+  </div>
+
+  <% if (Number(nomor) === 1) { %>
+    <div class="containerNextandPrev">
+     <div class="next" onclick="location.href='/tafsir/<%= Number(nomor + 1) %>'">Next</div>
+    </div>
+  <% } else if (Number(nomor) === 114) { %>
+   
+    <div class="containerNextandPrev">
+     <div class="prev" onclick="location.href= '/tafsir/<%= Number(nomor) - 1%>'">Prev</div>
+    </div>
+  
+  <% } else { %>
+    <div class="containerNextandPrev">
+     <div class="prev" onclick="location.href= '/tafsir/<%= Number(nomor) - 1%>'">Prev</div>
+     <div class="next" onclick="location.href='/tafsir/<%= Number(nomor + 1) %>'">Next</div>
+    </div>
+  <% } %>
+  
+  
+    <div class="up">
+      <i class='bx bx-up-arrow-alt'></i>
+    </div>
+
+  <script>
+    const upButton = document.getElementsByClassName('up')[0];
+    const downButton = document.getElementById('rotate');
+    const box = document.getElementById('ul');
+    const buttonShow = document.getElementsByClassName('buttonShow')[0];
+    const h1 = document.getElementById('animation');
+    const  animationLatin = document.querySelectorAll('.textAnimationlatin');
+    const  animationArab = document.querySelectorAll('.textAnimationarab');
+    const hasil = [...h1.textContent].map(a => `<span>${a}</span>`).join('');
+    h1.innerHTML = hasil;
+
+
+      window.addEventListener('scroll', () => {
+        kondisiUpbutton();
+      })
+
+      upButton.addEventListener('click', ()=> {
+        scrollTo({
+          top: 0,
+          behavior: 'smooth',
+        })
+      })
+
+      function kondisiUpbutton()  {
+        let lastScroll = 0;
+        let scrollTop = window.pageYOffset;
+        if (scrollTop !== lastScroll) {
+          upButton.style.display = 'flex';
+        } else {
+          upButton.style.display = 'none';
+        }
+      }
+
+
+    let toArrArab = [...animationArab];
+    toArrArab.forEach((a,b) => {
+      const result = [...a.textContent].map(a => `<span>${a}</span>`).join('');
+      animationArab[b].innerHTML = result;
+    })
+
+    
+    let toArrLatin = [...animationLatin];
+    toArrLatin.forEach((a,b) => {
+      const result = [...a.textContent].map(a => `<span>${a}</span>`).join('');
+      animationLatin[b].innerHTML = result;
+    })
+     
+
+
+
+
+
+     function button() {
+      buttonShow.classList.toggle('animation');
+      box.classList.toggle('show');
+      downButton.classList.toggle('change');
+     }
+
+  </script>
+  
+  
+</body>
+</html>
+   

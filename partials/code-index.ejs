@@ -1,0 +1,64 @@
+<script>
+    const downButton = document.getElementById('rotate');
+    const feedbackh1 = document.getElementById('feedbackh1');
+    const feedbackContainer = document.getElementsByClassName('Feedback')[0];
+    const inputNama = document.querySelector('#formNama');
+    const textarea = document.querySelector('#textarea');
+    const box = document.getElementById('ul');
+    const buttonShow = document.getElementsByClassName('buttonShow')[0];
+    const headerFeedback = document.getElementsByClassName('header-feedback')[0];
+    const h1 = document.getElementById('animation');
+    const  animationLatin = document.querySelectorAll('.textAnimationlatin');
+   const containerfeedbackform = document.querySelector('.container-form-feedback');
+    const  animationArab = document.querySelectorAll('.textAnimationarab');
+    const hasil = [...h1.textContent].map(a => `<span>${a}</span>`).join('');
+    h1.innerHTML = hasil;
+    
+    let toArrArab = [...animationArab];
+    toArrArab.forEach((a,b) => {
+      const result = [...a.textContent].map(a => `<span>${a}</span>`).join('');
+      animationArab[b].innerHTML = result;
+    })
+
+    
+    let toArrLatin = [...animationLatin];
+    toArrLatin.forEach((a,b) => {
+      const result = [...a.textContent].map(a => `<span>${a}</span>`).join('');
+      animationLatin[b].innerHTML = result;
+    })
+     
+     function button() {
+      buttonShow.classList.toggle('animation');
+      box.classList.toggle('show');
+      downButton.classList.toggle('change');
+     }
+
+
+    window.addEventListener('scroll', () => {
+      const containerTop = headerFeedback.getBoundingClientRect().top;
+      const containerBottom = headerFeedback.getBoundingClientRect().bottom;
+    if ( containerBottom <= window.innerHeight) {
+       containerfeedbackform.style.left = '0%';
+        feedbackh1.style.bottom = '0%';
+    } else {
+        feedbackh1.style.bottom = '100%';
+        containerfeedbackform.style.left = '100%';
+    }
+    })
+
+    function feedBack() {
+      feedbackContainer.scrollIntoView({
+        behavior: "smooth",
+      });
+      
+      buttonShow.classList.remove('animation');
+      box.classList.remove('show');
+      downButton.classList.remove('change');
+    };
+
+  
+
+
+  </script>
+</body>
+</html>

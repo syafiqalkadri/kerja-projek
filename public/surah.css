@@ -1,0 +1,453 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;700&family=Ubuntu:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;700&family=Roboto+Condensed:wght@300;700&family=Ubuntu:wght@300;400;500;700&display=swap');
+
+
+*{
+   margin: 0;
+   padding: 0;
+   font-size: 100%;
+}
+
+body {
+   background-color: #f0efed;
+}
+
+.headerContainer {
+   color: white;
+   font-size: large;
+   width: 100%;
+   height: 50px;
+   background-color: rgb(176,224,230);
+   border-bottom-right-radius: 20px;
+   border-bottom-left-radius: 20px;
+
+}
+
+
+
+
+.headerContainer .topContent {
+   color: black;
+   font-family: 'poppins', sans-serif;
+   width: 100%;
+   height: 50px;
+   display: flex;
+   align-items: center;
+}
+
+.headerContainer .topContent .container-namaSurah {
+   width: 200%;
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+}
+
+.headerContainer .topContent .container-namaSurah h1 {
+   cursor: pointer;
+   margin-right: 20px;
+}
+
+
+.headerContainer .topContent  h1 span {
+ display: inline-block;
+ transition: transform 1s ease;
+}
+.headerContainer .topContent  h1 span:hover {
+   transform: translateY(-10px);
+}
+
+
+.headerContainer .topContent .listContent .buttonShow {
+   z-index: 1;
+   transition: transform 1s ease;
+   cursor: pointer;
+   width: 40px;
+   height: 40px;
+   background-color: white;
+   border-radius: 100%;
+   border: 2px solid rgb(176,224,230) ;
+   position: relative;
+   right: 10px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.headerContainer .topContent .listContent .buttonShow .bxs-down-arrow {
+   transition: transform 1s ease;
+   transform: rotate(45deg);
+}
+
+.headerContainer .topContent .listContent {
+   z-index: 2;
+   width: 100%;
+   height: 50px;
+   display: flex;
+   justify-content: right;
+   align-items: center;
+}
+
+.headerContainer .topContent  .listContent ul { 
+
+   transition: width  1s ease, height 1s ease;
+   overflow: hidden;
+   display: flex;
+   justify-content: space-evenly;
+   align-items: center;
+   flex-direction: column;
+   border-radius: 10px;
+   top: 5px;
+   right: 5px;
+   position: absolute;
+    background-color: rgb(176,224,230);
+   width: 0px;
+   height: 0px;
+   z-index: 0;
+}
+
+.headerContainer .topContent .listContent ul li {
+   overflow: hidden;
+   border-radius: 10px;
+   list-style-type: none;
+   text-align: center;
+   width: 80%;
+   transition: transform 1s ease;
+   cursor: pointer;
+   background-color: white;
+}
+
+.headerContainer .topContent .listContent ul li:hover {
+   transform: translateY(-5px);
+}
+
+
+
+
+ .containerAudio  {
+     font-family: 'Roboto Condensed', sans-serif;
+     margin-top: 30px;
+     width: 100%;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     
+ }
+
+ .containerAudio .box {
+   position: relative;
+   transition: height 1s ease;
+   overflow: hidden;
+   width: 300px;
+   height: 0px;
+   background: white;
+   border: 5px solid rgb(176,224,230);
+   border-radius: 10px;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-around;
+   align-items: center;
+ }
+
+ .containerAudio .box img {
+   width: 70%;
+
+ }
+
+ .containerAudio .box .containerInput {
+    width: 100%;
+    height: 200px;
+     display: flex;
+     flex-direction: column;
+     justify-content: space-evenly;
+     align-items: center;
+ }
+
+ .containerAudio .box .containerInput input[type=range] {
+   width: 200px;
+   height: 20px;
+ }
+
+ .containerAudio .box .containerInput .buttonPlay {
+   width: 40px;
+   height: 40px;
+   background-color: rgb(176,224,230);
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: x-large;
+ }
+
+
+ .containerAudio .box .buttonPlay i {
+   cursor: pointer;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+ }
+
+ .containerAudio .box .containerButton {
+   justify-content: center;
+   align-items: center;
+   width: 90%;
+   display: flex;
+ }
+ 
+ .containerAudio .box .containerButton .right-forward {
+   margin-left: 20px;
+   font-size: xx-large;
+   cursor: pointer;
+
+ }
+
+ .containerAudio .box .containerButton .left-backward {
+   margin-right: 20px;
+   font-size: xx-large;
+   cursor: pointer;
+   transform: rotate(180deg);
+ }
+ 
+
+ .containerAudio .box .containerInput .durationAndcurrentTime {
+   width: 200px;
+   height: 20px;
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+ }
+
+
+
+.containerAudio .box .containerInput .containerButton .loopImg {
+   width: 30px;
+   position: absolute;
+   left: 240px;
+   height: 30px;
+   background-color: rgb(176,224,230);
+   border-radius: 100%;
+   padding: 5px;
+   cursor: pointer;
+}
+
+
+
+
+
+
+.containerAudio .showAudio {
+   transition: transform 1s ease;
+   cursor: pointer;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   width: 50px;
+   height: 50px; 
+   background-color: white;
+   border: rgb(176,224,230) solid 1px;
+   position: absolute;
+   top: 60px;
+   border-radius: 100%;
+   z-index: 1;
+}
+
+.containerAudio .showAudio i {
+   transition: transform 1s ease;
+}
+
+.containerAudio .topContent .listContent .buttonShow {
+   z-index: 2;
+}
+
+
+
+.box.show{
+   height: 400px;
+}
+
+.showAudio.animation {
+   transform: translate3d(150px, 400px , 0px );
+}
+
+
+.showAudio i.rotate {
+   transform: rotate(180deg);
+}
+
+
+@keyframes rotateAnimation {
+  from {
+   transform: rotate(0);
+  }
+
+  to {
+   transform: rotate(360deg);
+  }
+}
+
+
+
+img.rotateImg {
+   animation: rotateAnimation 2s linear infinite;
+}
+
+.buttonShow.animation {
+   transform: translate3d(-285px, 80px, 0);
+}
+
+
+
+
+#ul.show {
+   width: 300px;
+   border: 3px solid white;
+   height: 100px;
+}z
+
+
+
+#rotate.change {
+   transform: rotate(225deg);
+}
+
+
+
+.containerAyat {
+   font-family: 'Poppins', sans-serif;
+   margin-top: 50px;
+   width: 100%;
+   height: max-content;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   gap: 50px;
+}
+
+.containerAyat .box-ayat {
+   background-color: white;
+   padding: 10px;
+   width: 70%;
+   height: max-content;
+   border: 5px rgb(176,224,230) solid;
+   border-radius: 10px;
+}
+
+.containerAyat .box-ayat .teksIndonesia {
+   font-size: small;
+
+}
+
+
+.containerAyat .box-ayat .topContent {
+   padding-bottom: 10px;
+   width: 100%;
+   height: 20px;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+
+.containerAyat .box-ayat .topContent h1 {
+   position: relative;
+   left: 10px;
+}
+
+
+.containerAyat .box-ayat .centerContent  {
+   width: 100%;
+   height: max-content;
+}
+
+.containerAyat .box-ayat .centerContent .teksArab  {
+   font-size: xx-large;
+}
+
+
+.containerAyat .box-ayat .row {
+   width: 90%;
+   height: 5px;
+   margin: 10px;
+   background-color: rgb(176,224,230);
+}
+
+.containerAyat .box-ayat .topContent .containerpandp {
+   width: 50px;
+   height: 50px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   justify-content: center;
+}
+
+.containerAyat .box-ayat .topContent .containerpandp img{
+   position: absolute;
+   width: 30px;
+} 
+
+.containerAyat .box-ayat .topContent .containerpandp i  {
+   position: absolute;
+   font-size: xx-large;
+   cursor: pointer;
+}
+
+
+.containerNextandPrev {
+   font-family: 'Poppins', sans-serif;
+   font-weight: bold;
+   width: 100%;
+   height: 50px;
+   margin-top: 20px;
+   display: flex;
+   justify-content: space-evenly;
+   align-items: center;
+}
+
+
+.containerNextandPrev .next, .containerNextandPrev .prev {
+   width: 15%;
+   height: 30px;
+  background-color: white;
+  border: 5px solid  rgb(176,224,230);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+
+
+@media (max-width: 280px) {
+   
+   #ul.show {
+      width: 200px;
+      border: 3px solid white;
+      height: 100px;
+   }
+
+   .buttonShow.animation {
+      transform: translate3d(-190px, 90px, 0);
+   }
+   
+}
+
+
+.up {
+   position: fixed;
+   width: 50px;
+   height: 50px;
+   background-color: rgb(176,224,230);
+   bottom: 20px;
+   right: 20px;
+   border-radius: 100%;
+   font-size: xx-large;
+   display: none;
+   justify-content: center;
+   align-items: center;
+   cursor: pointer;
+}
+
+

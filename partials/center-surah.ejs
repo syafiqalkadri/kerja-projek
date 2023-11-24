@@ -1,0 +1,51 @@
+<div class="containerAudio">
+    <div class="showAudio" ><i class='bx bxs-down-arrow downButton'></i></div>
+       <div class="box">
+        <img src="/kaset.png" alt="" srcset="">
+        <div class="containerInput">
+          <h2 class="walking"><%= c %></h2>
+          <h3><%= b %></h3>
+          <input type="range" name="" id="range" value="0" min="0" max="0" step="1" onchange="seek()">
+          <div class="durationAndcurrentTime">
+            <div id="currentTime">00:00</div>
+            <div id="duration">00:00</div>
+          </div>
+          <div class="containerButton"> 
+            <i class='bx bx-fast-forward-circle left-backward' onclick="backward()"></i>
+           <div class="buttonPlay">
+            <i class='bx bx-pause' id="pause"  onclick="stop()" style="display: none;"></i>
+            <i class='bx bx-play' id="play" onclick="Play()"></i>
+           </div>
+           <i class='bx bx-fast-forward-circle right-forward' onclick="forward()"></i>
+             <img src="/loop.png" alt="" class="loopImg" >
+          </div>
+        </div>
+       </div>
+  </div>
+ 
+  <div class="containerAyat">
+  <% i.forEach(e => { %>
+        <div class="box-ayat">
+          <div class="topContent">
+             <h1>ayat : <%= e.nomorAyat %></h1>
+             <div class="containerpandp">
+              <img src="/icons8-quran-64.png" alt="" class="ButtonMusic" >
+              <i class='bx bx-pause pausepa'  style="display:none;"></i>
+              <i class='bx bx-play playpa'></i>
+             </div>
+          </div>
+          <div class="row"></div>
+          <div class="centerContent">
+            <h1 class="teksArab"><%= e.teksArab %></h1>
+            <h1><%= e.teksLatin %></h1>
+          </div>
+          <div class="row"></div>
+          <div class="bottomContent">
+             <h1><%= e.teksIndonesia %></h1>
+          </div>
+        </div>
+  <% }) %>
+</div>
+
+
+
