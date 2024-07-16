@@ -12,8 +12,7 @@ Aplikasi web untuk membaca dan menjelajahi Al-Qur'an Secara online.
 | Fitur            | Deskripsi                     |
 |----------------  |-------------------------------|
 | Membaca Qur'an   | Membaca teks Al-Qur'an        |                                |
-| Membaca Tafsiran | memahami teks tafsiran yang di|
-|                    turunkan kepada nabi muhammad |
+| Membaca Tafsiran | memahami teks tafsiran yang di turunkan kepada nabi muhammad| 
 
 
 ## Teknologi yang Digunakan 🛠️
