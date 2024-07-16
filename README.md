@@ -24,3 +24,22 @@ Aplikasi web untuk membaca dan menjelajahi Al-Qur'an Secara online.
 - **EJS**: Template engine
 - **HTML/CSS**: Untuk tampilan antarmuka
 - **JavaScript**: Interaktivitas di sisi klien
+
+
+## Instalasi 💻
+
+1. Clone repositori ini
+2. Instal dependensi
+3. Jalankan aplikasi
+
+## Kontribusi 🤝
+
+Jika ingin berkontribusi, silakan lakukan fork dan kirim pull request.
+
+## Lisensi 📄
+
+Proyek ini dilisensikan di bawah MIT License.
+
+## Kontak 📫
+
+Email: [syafiqalkadri95@gmail.com](mailto:syafiqalkadri95@gmail.com)
